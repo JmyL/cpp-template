@@ -164,6 +164,7 @@ function (sanitizer_add_flags TARGET NAME PREFIX)
     # for this target. Other compiler checks like check for conflicting
     # compilers will be done in add_sanitizers function.
     sanitizer_target_compilers(${TARGET} TARGET_COMPILER)
+    # set(ENV{ASAN_OPTIONS} "color=always")
     list(LENGTH TARGET_COMPILER NUM_COMPILERS)
     if ("${${PREFIX}_${TARGET_COMPILER}_FLAGS}" STREQUAL "")
         return()

@@ -20,6 +20,9 @@ include(Memcheck)
 macro(AddTests target)
   AddCoverage(${target})
   target_link_libraries(${target} PRIVATE gtest_main gmock)
-  gtest_discover_tests(${target})
+  gtest_discover_tests(${target}
+     EXTRA_ARGS --gtest_color=yes
+     PROPERTIES ENVIRONMENT "ASAN_OPTIONS=color=always")
+
   AddMemcheck(${target})
 endmacro()

@@ -25,9 +25,9 @@ install(FILES "CalcConfig.cmake"
 )
 
 # CalcConsole runtime
-install(TARGETS calc_console
-  RUNTIME COMPONENT runtime
-)
+# install(TARGETS calc_console
+#   RUNTIME COMPONENT runtime
+# )
 
 # CPack configuration
 set(CPACK_PACKAGE_VENDOR "Rafal Swidzinski")
