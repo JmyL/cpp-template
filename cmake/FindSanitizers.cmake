@@ -55,6 +55,7 @@ function(add_sanitizers)
     # If no sanitizer is enabled, return immediately.
     if (NOT (SANITIZE_ADDRESS OR SANITIZE_MEMORY OR SANITIZE_THREAD OR
         SANITIZE_UNDEFINED))
+        message("Found no flag. Sanitizer is disabled.")
         return()
     endif ()
 

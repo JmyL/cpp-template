@@ -29,7 +29,7 @@ set(FLAG_CANDIDATES
     # MSVC uses
     "/fsanitize=undefined"
     # GNU/Clang
-    "-g -fsanitize=undefined"
+    "-g -fsanitize=undefined -fno-sanitize-recover=undefined"
 )
 
 
