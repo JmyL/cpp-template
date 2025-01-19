@@ -1,17 +1,15 @@
 enable_testing()
 
-include(FetchContent)
-FetchContent_Declare(
-  googletest
-  GIT_REPOSITORY https://github.com/google/googletest.git
-  GIT_TAG release-1.11.0
+include(CPM)
+CPMAddPackage(
+  NAME gtest
+  GITHUB_REPOSITORY google/googletest
+  GIT_TAG v1.15.2
+  OPTIONS
+      "INSTALL_GTEST OFF"
+      "INSTALL_GMOCK OFF"
+      "gtest_force_shared_crt ON"
 )
-# For Windows: Prevent overriding the parent project's
-# compiler/linker settings
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-option(INSTALL_GMOCK "Install GMock" OFF)
-option(INSTALL_GTEST "Install GTest" OFF)
-FetchContent_MakeAvailable(googletest)
 
 include(GoogleTest)
 include(Coverage)
