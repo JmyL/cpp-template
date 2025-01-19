@@ -10,3 +10,10 @@ This application is written in C++ and built with CMake.
 
 - Installation instructions are in the INSTALL file
 - License is in the LICENSE file
+
+## Prerequisites
+
+- CMake
+- cppcheck
+- doxygen
+- lcov
