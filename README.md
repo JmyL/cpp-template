@@ -17,3 +17,7 @@ This application is written in C++ and built with CMake.
 - cppcheck
 - doxygen
 - lcov
+
+## TODO
+
+- [ ] Using flake.nix install ninja, clang, boost
