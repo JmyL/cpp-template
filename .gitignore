@@ -1,6 +1,6 @@
-*.un~
-Release/
-Debug/
-compile_commands.json
-.cache
-Testing/
+/.direnv
+/Release/
+/Debug/
+/compile_commands.json
+/.cache
+/Testing/
