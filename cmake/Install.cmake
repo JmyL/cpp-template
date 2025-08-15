@@ -1,6 +1,6 @@
 include(GNUInstallDirs)
 # Calc library
-install(TARGETS calc_obj calc_shared calc_static
+install(TARGETS calc
   EXPORT CalcLibrary
   ARCHIVE COMPONENT development
   LIBRARY COMPONENT runtime
