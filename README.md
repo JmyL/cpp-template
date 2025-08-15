@@ -13,11 +13,8 @@ This application is written in C++ and built with CMake.
 
 ## Prerequisites
 
-- CMake
-- cppcheck
-- doxygen
-- lcov
+- direnv
+- Install [nix](https://nixos.org/download/) and create `~/.config/nix/nix.conf` with `experimental-features = nix-command flakes` as it's contents.
 
-## TODO
+All prerequisites will be installed by nix package manager.
 
-- [ ] Using flake.nix install ninja, clang, boost
