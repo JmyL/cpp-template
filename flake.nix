@@ -1,6 +1,7 @@
 {
   description = "clang + Boost development environment (CMake ready)";
 
+  # See https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/compilers/llvm/default.nix to find correct commit id for specific clang version
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
