@@ -11,6 +11,10 @@
         buildInputs =
           [ clang ninja cmake ccache boost.dev cppcheck doxygen lcov ];
 
+        shellHook = ''
+                    export CC=clang
+                    export CXX=clang++
+          	  '';
         CMAKE_PREFIX_PATH = "${boost.dev}";
         CPLUS_INCLUDE_PATH = "${boost.dev}/include";
       };
