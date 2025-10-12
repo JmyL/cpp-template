@@ -1,5 +1,5 @@
 include(CPM)
-CPMAddPackage(
+cpmaddpackage(
   NAME benchmark
   GITHUB_REPOSITORY google/benchmark
   VERSION 1.5.2
@@ -12,5 +12,5 @@ CPMAddPackage(
 # endif()
 
 macro(AddBenchmark target)
-  target_link_libraries(${target} PRIVATE benchmark::benchmark_main)
+    target_link_libraries(${target} PRIVATE benchmark::benchmark_main)
 endmacro()
