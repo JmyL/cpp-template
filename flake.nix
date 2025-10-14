@@ -1,22 +1,32 @@
 {
   description = "clang + Boost development environment (CMake ready)";
 
-  # See https://github.com/NixOS/nixpkgs/blob/master/pkgs/development/compilers/llvm/default.nix 
-  # to find correct commit id for specific clang version
   inputs = { nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable"; };
 
   outputs = { self, nixpkgs }: {
-    devShells.x86_64-linux.default = with nixpkgs.legacyPackages.x86_64-linux;
-      mkShell {
-        buildInputs =
-          [ clang ninja cmake ccache boost.dev cppcheck doxygen lcov ];
-
-        shellHook = ''
-          export CC=clang
-          export CXX=clang++
-        '';
-        CMAKE_PREFIX_PATH = "${boost.dev}";
-        CPLUS_INCLUDE_PATH = "${boost.dev}/include";
+    devShells.x86_64-linux.default = let
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+        config.allowUnfree = true;
       };
+    in pkgs.mkShell {
+      buildInputs = [
+        pkgs.clang
+        pkgs.ninja
+        pkgs.cmake
+        pkgs.ccache
+        pkgs.boost.dev
+        pkgs.cppcheck
+        pkgs.doxygen
+        pkgs.lcov
+        pkgs.cudatoolkit
+      ];
+      shellHook = ''
+        export CC=clang
+        export CXX=clang++
+      '';
+      CMAKE_PREFIX_PATH = "${pkgs.boost.dev}";
+      CPLUS_INCLUDE_PATH = "${pkgs.boost.dev}/include";
+    };
   };
 }
