@@ -1,4 +1,4 @@
-function(Format target directory)
+function(format target directory)
     find_program(CLANG-FORMAT_PATH clang-format REQUIRED)
     set(EXPRESSION
         h
