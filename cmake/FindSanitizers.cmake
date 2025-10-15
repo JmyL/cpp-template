@@ -52,7 +52,7 @@ function(sanitizer_add_blacklist_file FILE)
     )
 endfunction()
 
-function(add_sanitizers)
+function(add_sanitizer)
     # If no sanitizer is enabled, return immediately.
     if(
         NOT (
@@ -106,4 +106,4 @@ function(add_sanitizers)
         add_sanitize_memory(${TARGET})
         add_sanitize_undefined(${TARGET})
     endforeach()
-endfunction(add_sanitizers)
+endfunction(add_sanitizer)

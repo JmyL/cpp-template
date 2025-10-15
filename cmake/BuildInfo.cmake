@@ -14,6 +14,6 @@ configure_file(
     @ONLY
 )
 
-function(BuildInfo target)
+function(gen_build_info target)
     target_include_directories(${target} PRIVATE ${DESTINATION})
 endfunction()

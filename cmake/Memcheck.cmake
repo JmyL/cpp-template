@@ -6,7 +6,7 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(memcheck-cover)
 
-function(AddMemcheck target)
+function(add_memcheck target)
     set(MEMCHECK_PATH ${memcheck-cover_SOURCE_DIR}/bin)
     set(REPORT_PATH "${CMAKE_BINARY_DIR}/valgrind-${target}")
 

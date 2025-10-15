@@ -8,7 +8,7 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(doxygen-awesome-css)
 
-function(Doxygen target input)
+function(add_doxygen target input)
     set(NAME "doxygen-${target}")
     set(DOXYGEN_HTML_OUTPUT ${PROJECT_BINARY_DIR}/${NAME})
     set(DOXYGEN_GENERATE_HTML YES)

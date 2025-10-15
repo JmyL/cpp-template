@@ -1,11 +1,11 @@
-function(EnableCoverage target)
+function(enable_coverage target)
     if(CMAKE_BUILD_TYPE STREQUAL Debug)
         target_compile_options(${target} PRIVATE --coverage -fno-inline)
         target_link_options(${target} PUBLIC --coverage)
     endif()
 endfunction()
 
-function(CleanCoverage target)
+function(clean_coverage target)
     add_custom_command(
         TARGET ${target}
         PRE_BUILD
@@ -13,7 +13,7 @@ function(CleanCoverage target)
     )
 endfunction()
 
-function(AddCoverage target)
+function(add_coverage target)
     find_program(LCOV_PATH lcov REQUIRED)
     find_program(GENHTML_PATH genhtml REQUIRED)
     add_custom_target(

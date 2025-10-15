@@ -1,4 +1,4 @@
-function(AddClangTidy target)
+function(add_clangtidy target)
     find_program(CLANGTIDY_PATH clang-tidy REQUIRED)
     set_target_properties(
         ${target}

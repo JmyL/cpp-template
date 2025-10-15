@@ -1,4 +1,4 @@
-function(AddCppCheck target)
+function(add_cppcheck target)
     find_program(CPPCHECK_PATH cppcheck REQUIRED)
     set_target_properties(
         ${target}

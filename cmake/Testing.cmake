@@ -17,8 +17,8 @@ include(GoogleTest)
 include(Coverage)
 include(Memcheck)
 
-macro(AddTests target)
-    addcoverage(${target})
+macro(add_test_suite target)
+    add_coverage(${target})
     target_link_libraries(${target} PRIVATE gtest_main gmock)
     gtest_discover_tests(
         ${target}
@@ -26,5 +26,5 @@ macro(AddTests target)
         PROPERTIES ENVIRONMENT "ASAN_OPTIONS=color=always"
     )
 
-    addmemcheck(${target})
+    add_memcheck(${target})
 endmacro()
