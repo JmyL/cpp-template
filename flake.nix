@@ -1,32 +1,32 @@
 {
-  description = "clang + Boost development environment (CMake ready)";
+  description = "dev shell with clang, Boost, etc.";
 
-  inputs = { nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable"; };
-
-  outputs = { self, nixpkgs }: {
-    devShells.x86_64-linux.default = let
-      pkgs = import nixpkgs {
-        system = "x86_64-linux";
-        config.allowUnfree = true;
-      };
-    in pkgs.mkShell {
-      buildInputs = [
-        pkgs.clang
-        pkgs.ninja
-        pkgs.cmake
-        pkgs.ccache
-        pkgs.boost.dev
-        pkgs.cppcheck
-        pkgs.doxygen
-        pkgs.lcov
-        pkgs.cudatoolkit
-      ];
-      shellHook = ''
-        export CC=clang
-        export CXX=clang++
-      '';
-      CMAKE_PREFIX_PATH = "${pkgs.boost.dev}";
-      CPLUS_INCLUDE_PATH = "${pkgs.boost.dev}/include";
-    };
+  inputs = {
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
   };
+
+  outputs = { self, nixpkgs, flake-utils }:
+    flake-utils.lib.eachDefaultSystem (system:
+      let pkgs = import nixpkgs { system = system; };
+      in with pkgs; {
+        devShells.default = pkgs.mkShell {
+          buildInputs = with pkgs; [
+            clang
+            ninja
+            cmake
+            ccache
+            boost.dev
+            cppcheck
+            doxygen
+            lcov
+          ];
+          shellHook = ''
+            export CC=clang
+            export CXX=clang++
+          '';
+          CMAKE_PREFIX_PATH = "${pkgs.boost.dev}";
+          CPLUS_INCLUDE_PATH = "${pkgs.boost.dev}/include";
+        };
+      });
 }
