@@ -3,7 +3,13 @@ cmake_policy(SET CMP0167 NEW)
 
 project(Calc VERSION 1.0.0 LANGUAGES CXX)
 
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
+include(CPM.cmake)
+CPMAddPackage(
+    NAME cmake_modules
+    GITHUB_REPOSITORY JmyL/cmake-modules
+    VERSION 0.1.0
+)
+list(APPEND CMAKE_MODULE_PATH ${cmake_modules_SOURCE_DIR})
 
 include(ExportCompileCommands)
 include(NoInSourceBuilds)
