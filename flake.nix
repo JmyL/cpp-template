@@ -24,6 +24,7 @@
           shellHook = ''
             export CC=clang
             export CXX=clang++
+            export BUILD_TYPE=RelWithDebInfo
           '';
           CMAKE_PREFIX_PATH = "${pkgs.boost.dev}";
           CPLUS_INCLUDE_PATH = "${pkgs.boost.dev}/include";
